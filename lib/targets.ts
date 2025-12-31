@@ -10,10 +10,12 @@ export interface Target {
   rule: Rule;
 }
 
+const targetUrl = process.env.TARGET_URL ?? 'https://www.zara.com/kr/ko/search?searchTerm=AARON%20LEVINE&section=MAN';
+
 export const targets: Target[] = [
   {
-    name: 'ZARA AARON LEVINE search',
-    url: 'https://www.zara.com/kr/ko/search?searchTerm=AARON%20LEVINE&section=MAN',
+    name: 'ZARA search',
+    url: targetUrl,
     selector: 'del',
     rule: { type: 'element_exists' },
   },
