@@ -1,13 +1,13 @@
+import axios from 'axios';
 import cheerio from 'cheerio';
 
 export async function scrape(url: string) {
-  const res = await fetch(url, {
+  const res = await axios.get(url, {
     headers: {
       'User-Agent': 'Mozilla/5.0',
     },
-    cache: 'no-store',
   });
 
-  const html = await res.text();
+  const html = res.data;
   return cheerio.load(html);
 }
