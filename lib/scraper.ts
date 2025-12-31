@@ -1,5 +1,5 @@
 import axios from 'axios';
-import cheerio from 'cheerio';
+import { parse } from 'node-html-parser';
 
 export async function scrape(url: string) {
   const res = await axios.get(url, {
@@ -9,5 +9,5 @@ export async function scrape(url: string) {
   });
 
   const html = res.data;
-  return cheerio.load(html);
+  return parse(html);
 }
