@@ -12,9 +12,9 @@ export interface Target {
 
 export const targets: Target[] = [
   {
-    name: 'Example product',
-    url: 'https://example.com/product',
-    selector: '.price',
-    rule: { type: 'price_below', value: 10000 },
+    name: 'ZARA AARON LEVINE search',
+    url: 'https://www.zara.com/kr/ko/search?searchTerm=AARON%20LEVINE&section=MAN',
+    selector: 'del',
+    rule: { type: 'element_exists' },
   },
 ];
