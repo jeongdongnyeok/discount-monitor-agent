@@ -8,15 +8,18 @@ export interface Target {
   rule: Rule;
 }
 
-export function judge($: any, target: Target): boolean {
-  const el = $(target.selector);
+export function judge(root: any, target: Target): boolean {
+  const elements = root.querySelectorAll(target.selector);
 
   if (target.rule.type === 'element_exists') {
-    return el.length > 0;
+    return elements.length > 0;
   }
 
   if (target.rule.type === 'price_below') {
-    const priceText = el.first().text();
+    if (elements.length === 0) {
+      return false;
+    }
+    const priceText = elements[0].text;
     const price = parseInt(priceText.replace(/[^\d]/g, ''), 10);
     if (target.rule.value === undefined) {
       return false;
